@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from hellodjango.views import *
-from helloworld.views import * 
+from dice.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',hello_world),
     path('helloworld/<str:username>',hello_user),
     path('helloworld/<str:username>/time',hello_template),
     path('helloworld/<str:username>/time/static',hello_static),
-    #path('hello_world/<str:username>',hello_user),
-    #path('hello_world/<str:username/time>',hello_template)
+    path('dice/test1',dice1),
+    path('dice/test2',dice2),
+    path('dice/test3/<str:username>',dice3),
+    path('dice/show',show_list),
+    path('show/',show),
+    path('show2/',show_reverse),
+    path('filter/',filter),  
 ]

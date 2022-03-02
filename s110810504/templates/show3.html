@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>show person</title> 
+    </head>
+    <body>
+        {% for i in persons reversed%}
+        <h2> person={{forloop.counter}} </h2>
+        <ui>
+            <li>name: {{i.name}}</li>
+            <li>phone: {{i.phone}}</li>
+            <li>age:{{i.age}}</li>
+        </ui>
+        {% empty %}
+            no data or missing variables name
+        {% endfor %}
+    </body>
+</html>

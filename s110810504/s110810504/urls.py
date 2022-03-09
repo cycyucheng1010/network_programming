@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from hellodjango.views import *
 from dice.views import *
+from myapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',hello_world),
@@ -30,4 +31,7 @@ urlpatterns = [
     path('show/',show),
     path('show2/',show_reverse),
     path('filter/',filter),  
+    path('myapp/list_one/',list_one),
+    path('myapp/list_all/',list_all),
+    path('myapp/list_index/',list_index),
 ]

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>  
+    <meata charset ="UTF-8">
+    <title>Display all recond</title>
+</head>
+<body>
+    <table border="1"> 
+        <th>id</th>
+        <th>name</th>
+        <th>sex</th>
+        <th>birth</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>home address</th>
+    {% for s in students %}
+        <tr>
+            <td>{{s.id}}</td>
+            <td>{{s.Name}}</td>
+            <td>{{s.Sex}}</td>
+            <td>{{s.Birth}}</td>
+            <td>{{s.Email}}</td>
+            <td>{{s.Phone}}</td>
+            <td>{{s.Home_Address}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+{% block title %}<title> Display all data </title>
+{%endblock%} 
+{% block content %}
+<h2>Display all student data via templates index.html</h2>
+<table border="1"> 
+    <th>id</th>
+    <th>name</th>
+    <th>sex</th>
+    <th>birth</th>
+    <th>email</th>
+    <th>phone</th>
+    <th>home address</th>
+{% for s in students %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.Name}}</td>
+        <td>{{s.Sex}}</td>
+        <td>{{s.Birth}}</td>
+        <td>{{s.Email}}</td>
+        <td>{{s.Phone}}</td>
+        <td>{{s.Home_Address}}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

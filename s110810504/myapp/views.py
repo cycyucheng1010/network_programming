@@ -73,3 +73,47 @@ def delete(request,id=None):
         except:
             message = 'loading error'
     return render(request,'myapp/delete.html',locals())
+
+def edit(request,id=None,mode=None):
+    if mode == 'edit':
+        unit = student.objects.get(id=id)
+        unit.Name = request.GET['Name']
+        unit.Sex = request.GET['Sex']
+        unit.Birth = request.GET['Birth']
+        unit.Email = request.GET['Email']
+        unit.Phone = request.GET['Phone']
+        unit.Home_Address = request.GET['Home_Address']
+        unit.save()
+        message = 'edited'
+        return redirect('/myapp/list_index/')
+    else:
+        try:
+            unit = student.objects.get(id=id)
+            strdate = str(unit.Birth)
+            strdate2 = str(strdate.replace("年",'-'))
+            strdate2 = str(strdate.replace("月",'-'))
+            strdate2 = str(strdate.replace("日",'-'))
+            unit.Birth = strdate2
+        except:
+            message = 'id invalid'
+    return render(request,'myapp/edit.html',locals())
+def edit2(request,id=None,mode=None):
+    if mode =='load':
+        unit = nit = student.objects.get(id=id)
+        strdate = str(unit.Birth)
+        strdate2 = str(strdate.replace("年",'-'))
+        strdate2 = str(strdate.replace("月",'-'))
+        strdate2 = str(strdate.replace("日",'-'))
+        unit.Birth = strdate2
+        return render(request,'myapp/edit2.html',locals())
+    elif mode=='save':
+        unit = student.objects.get(id=id)
+        unit.Name = request.POST['Name']
+        unit.Sex = request.POST['Sex']
+        unit.Birth = request.POST['Birth']
+        unit.Email = request.POST['Email']
+        unit.Phone = request.POST['Phone']
+        unit.Home_Address = request.POST['Home_Address']
+        unit.save()
+        message = 'edited'
+        return redirect('/myapp/list_index/')

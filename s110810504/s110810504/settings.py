@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hellodjango',
     'dice',
-    'myapp'
+    'myapp',
+    'CookieSessionApp'
 ]
 
 MIDDLEWARE = [

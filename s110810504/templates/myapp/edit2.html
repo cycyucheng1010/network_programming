@@ -1,0 +1,48 @@
+{% extends "myapp/base.html" %}
+{% block tile %}<title>data edit</title>{% endblock %}
+{% block content %}
+<h2>studnt data edit </h2>
+<form action = '/myapp/edit/{{unit.id}}/edit' method="GET" name = "form1">
+    <table border="1" cellspacing="1" cellpadding="4"]>
+        <tr>
+            <th>Name</th>
+            <td><input type = "text" id = "Name" name = "Name" value="{{unit.Name}}"> </td>
+        </tr>
+            <th>Sex{{unit.Sex}}</th>
+            {% if unit.Sex == 'M' %}
+            <td> 
+                <input type="radio" name="Sex" id="Sex1" value="M" checked="checked" >男生
+                <input type="radio" name="Sex" id="Sex2" value="F">女生
+            </td>
+            {% else %}
+            <td> 
+                <input type="radio" name="Sex" id="Sex1" value="M"  >男生
+                <input type="radio" name="Sex" id="Sex2" value="F"checked="checked">女生
+            </td>
+            {%endif%}
+            <tr>
+            <th>Birth</th>
+            <td><input type = "text" id = "Birth" name = "Birth" value={{unit.Birth}}> </td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type = "text" id = "Email" name = "Email" value={{unit.Email}}> </td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input type = "text" id = "Phone" name = "Phone" value={{unit.Phone}}> </td>
+        </tr>
+        <tr>
+            <th>Home_Address</th>
+            <td><input type = "text" id = "Home_Address" name = "Home_Address" value={{unit.Home_Address}}> </td>
+        </tr>
+        <tr>
+            <th clospan="2" ;align="center"> 
+                <input type= "submit" name="button" id="button" value="送出">
+                <input type= "reset" name="button2" id="button2" value="重設">
+            </th>
+        </tr>
+    </table>
+    <span style="color:blue">{{message}}</span>
+</form>
+{% endblock %}

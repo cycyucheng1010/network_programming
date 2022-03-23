@@ -1,8 +1,10 @@
-{% extends 'myapp/base.html' %}
-{% block title %}<title> Display all data </title>
-{%endblock%} 
+{% extends "myapp/base.html" %}
+{% block title %}<title>show all data</title>{% endblock %}
 {% block content %}
-<h2>Display all student data via templates index.html</h2>
+<h2 align="left">show all data
+<a href="/myapp/post1/">post1</a> <a href="/myapp/post2/">post2</a></h2>
+<form action="." method="POST" name="form1">
+{%  csrf_token %}
 <table border="1"> 
     <th>id</th>
     <th>name</th>
@@ -11,6 +13,7 @@
     <th>email</th>
     <th>phone</th>
     <th>home address</th>
+    <th>edit</th>
 {% for s in students %}
     <tr>
         <td>{{s.id}}</td>
@@ -20,7 +23,13 @@
         <td>{{s.Email}}</td>
         <td>{{s.Phone}}</td>
         <td>{{s.Home_Address}}</td>
+        <td>
+            <a href="/myapp/edit/{{s.id}}/" title="edit1">edit1</a>
+            <a href="/myapp/edit2/{{s.id}}/load" title="edit2">edit2</a>
+            <a href="/myapp/delete/{{s.id}}/" title="delete">delete</a>
+        </td>
     </tr>
 {% endfor %}
 </table>
+</form>
 {% endblock %}

@@ -16,6 +16,7 @@ Including another URLconf
 from ast import Delete
 from django.contrib import admin
 from django.urls import path
+from CookieSessionApp.views import *
 from hellodjango.views import *
 from dice.views import *
 from myapp.views import *
@@ -40,4 +41,23 @@ urlpatterns = [
     path('myapp/postform/',postform),
     path('myapp/post2/',post2),
     path('myapp/delete/<int:id>/',delete),
+    path('myapp/edit/<int:id>/',edit),
+    path('myapp/edit/<int:id>/<str:mode>',edit),
+    path('myapp/edit2/<int:id>/<str:mode>',edit2),
+
+    path('CookieSessionApp/set_cookie/<str:key>/<str:value>',set_cookie),
+    path('CookieSessionApp/set_cookie2/<str:key>/<str:value>',set_cookie2),
+    path('CookieSessionApp/get_cookie/<str:key>/',get_cookie),
+    path('CookieSessionApp/get_all_cookies/',get_all_cookies),
+    path('CookieSessionApp/delete_cookie/<str:key>/',delete_cookie),
+    path('CookieSessionApp/',CookieSessionApp_index),
+    path('CookieSessionApp/index/',CookieSessionApp_index),
+    path('CookieSessionApp/set_session/<str:key>/<str:value>',set_session),
+    path('CookieSessionApp/get_session/<str:key>/',get_session),
+    path('CookieSessionApp/get_all_sessions/',get_all_sessions),
+    path('CookieSessionApp/vote/',vote),
+    #path('CookieSessionApp/set_sessions2/<str:key/<str:value>',set_session2),
+    #path('CookieSessionApp/delete/session/<str:key>/',delete_session),
+    #path('CookieSessionApp/login/',login),
+    #path('CookieSessionApp/logout',logout),
 ]

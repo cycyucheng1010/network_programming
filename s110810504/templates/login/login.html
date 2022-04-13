@@ -1,0 +1,9 @@
+<h1>login</h1>
+<h3>登入</h3>
+
+<form action="." method="POST">
+{% csrf_token %}
+    <div>account:<input type = 'text' name="username" id="username"/></div>
+    <div>password:<input type = 'password' name="password" id="password"/></div>
+    <input class="btn btn-primary" type="submit" value="登入" />
+</form>

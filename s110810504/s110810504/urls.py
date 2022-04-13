@@ -20,12 +20,15 @@ from CookieSessionApp.views import *
 from hellodjango.views import *
 from dice.views import *
 from myapp.views import *
+from login.views import *
+from newsapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',hello_world),
     path('helloworld/<str:username>',hello_user),
     path('helloworld/<str:username>/time',hello_template),
     path('helloworld/<str:username>/time/static',hello_static),
+    
     path('dice/test1',dice1),
     path('dice/test2',dice2),
     path('dice/test3/<str:username>',dice3),
@@ -56,8 +59,15 @@ urlpatterns = [
     path('CookieSessionApp/get_session/<str:key>/',get_session),
     path('CookieSessionApp/get_all_sessions/',get_all_sessions),
     path('CookieSessionApp/vote/',vote),
-    #path('CookieSessionApp/set_sessions2/<str:key/<str:value>',set_session2),
+    path('CookieSessionApp/set_sessions2/<str:key>/<str:value>/',set_session2),
     #path('CookieSessionApp/delete/session/<str:key>/',delete_session),
-    #path('CookieSessionApp/login/',login),
-    #path('CookieSessionApp/logout',logout),
+    path('CookieSessionApp/login/',login),
+    path('CookieSessionApp/logout/',logout),
+    path('login/adduser/',login_add_user),
+    path('login/',login_index),
+    path('login/index/',login_index),
+    path('login/login/',login_login),
+    path('login/logout/',login_logout),
+    path('news/index/<str:pageindex>/',news_index),
+    path('news/detail/<int:detailid>/',news_detail),
 ]

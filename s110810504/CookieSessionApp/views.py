@@ -79,3 +79,31 @@ def vote(request):
     
     response = HttpResponse(msg)
     return response
+def set_session2(request,key=None,value=None):
+    response = HttpResponse('Session storing finished')
+    request.session[key] = value
+    request.session.set_expiry(30)
+    return response 
+
+def login(request):
+    username='rick'
+    password='12345'
+    if request.method =='POST':
+        if not 'username' in request.session:
+            if request.POST['username'] == username and request.POST['password'] == password:
+                request.session['username'] = username
+                message = 'welcome' + username
+                status = 'login'
+    else: 
+        if 'username' in request.session:
+            if request in request.session:
+                if request.session['username']== username:
+                    message = request.session['username'] + 'already login'
+                    status = 'login'
+    return render(request,'CookieSessionApp/login.html',locals())
+
+def logout(request):
+    if 'username' in request.session:
+        message = request.session['username']+'already logout'
+        del request.session['username']
+    return render(request,'CookieSessionApp/login.html',locals())        

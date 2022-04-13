@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>新聞系統</title>
+        {% load static %}
+        <link rel="stylesheet" href="{%static 'css/style.css'%}" type="text/css">
+
+    </head>
+
+    <body>
+        <div id="wrap">
+            <div id="header">
+                <div class="logo">
+                    <img src="/static/images/DWonline.png" alt="news" width="180" height="40">
+                    
+                </div>
+            </div>
+            <div class="headings">
+                <h2> 新聞系統</h2>
+            </div>
+            {%block content%}{%endblock%}
+            <div id="footer">Copyright 2017 eHAppy Studio 新聞系統</div>
+        </div>
+    </body>
+</html>

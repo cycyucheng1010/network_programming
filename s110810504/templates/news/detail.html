@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="contentbox">
+        <table>
+            <tr>
+                <th align="left"><span class="typeblock">{{category}}</span> {{title}}</th>
+            </tr>
+            <tr>
+                <td>
+                    <span class="newsinfo">
+                        <img src="{% static 'images/date.png' %}" alt="" width="16" height="16">{{pubtime}}
+                        <img src="{% static 'images/user.png' %}" alt="" width="16" height="16">{{nickname}}
+                        <p>{{message}}</p>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <a href="/news/index/3" title="返回首頁">
+                <img src="{% static 'images/home.png' %}" alt="返回首頁" width="86" height="32">
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'hellodjango',
     'dice',
     'myapp',
-    'CookieSessionApp'
+    'CookieSessionApp',
+    'login',
+    'newsapp',
 ]
 
 MIDDLEWARE = [

@@ -68,6 +68,18 @@ urlpatterns = [
     path('login/index/',login_index),
     path('login/login/',login_login),
     path('login/logout/',login_logout),
+    path('news/',news_index),
+    path('news/index/',news_index),
     path('news/index/<str:pageindex>/',news_index),
     path('news/detail/<int:detailid>/',news_detail),
+    path('news/login/',news_login),
+    path('news/logout/',news_logout),
+    path('news/adminmain/',news_adminmain),
+    path('news/adminmain/<str:pageindex>/',news_adminmain),
+    path('news/newsadd/',news_newsadd),
+    path('news/newsedit/<int:newsid>/',news_newsedit),
+    path('news/newsedit/<int:newsid>/<str:edittype>/',news_newsedit),
+    path('news/newsdelete/<int:newsid>/',news_newsdelete),
+    path('news/newsdelete/<int:newsid>/<str:deletetype>/',news_newsdelete),
+    
 ]

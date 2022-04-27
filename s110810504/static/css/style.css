@@ -69,6 +69,18 @@ table tr td a:hover { color:#F60;}
 	margin-right: 10px;
 }				
 			
+.toplogin {
+	height: 30px;
+	float: right;
+	margin-top: 12px;
+	margin-right: 5px;
+	text-align: right;
+}
+
+.toplogin img {
+	margin-right: 10px;
+}				
+
 .logo {
 	float: left;
 	padding: 0px 0 0 20px;
@@ -155,3 +167,53 @@ table tr td a:hover { color:#F60;}
 .newsinfo *{
 	vertical-align: text-bottom;
 }
+
+.boxLogin {
+	width: 700px;
+	margin: auto;
+	margin-top: 100px;
+	padding: 0px;
+	background-image: url(images/adminlogin_bg.png);
+}
+
+.boxLogin  div.fields {
+	width: 360px;
+	height: 185px;
+	overflow: hidden;
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 2px #999;
+	margin-left: 290px;
+	padding-top: 20px;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 50px;
+}
+
+.boxLogin  .toolTip{
+	width:416px;
+	float:right;
+}
+
+.boxLogin  .fields p.error {
+	background:transparent;
+}
+
+.fields p.rem {
+	padding:10px 0 0 100px;
+}
+
+.fields p label { display:inline-block;}
+
+.action {
+	padding:20px 74px 0 0;
+	text-align:right;
+}
+
+.small {
+	width: 84px;
+	font-size: 13px;
+	text-shadow: 1px 1px 0px #CCC;
+}
+
+.sep { margin-top:15px; }

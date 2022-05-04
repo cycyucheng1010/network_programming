@@ -1,0 +1,29 @@
+<head>
+    {% load static %}
+    <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css"/>
+</head>
+<form action="." method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>帳號</th>
+            <td>{{ postform.username }}</td>
+        </tr>
+        <tr>
+            <th>密碼</th>
+            <td>{{ postform.pd }}</td>
+        </tr>
+        <tr>
+            <th>驗證碼</th>
+            <td>{{ postform.captcha }}</td>
+        </tr>
+        <tr>
+            <th>Button</th>
+            <td>
+                <input type="submit" name="button" id="button" value="送出">
+                <input type="reset" name="button2" id="button2" value="重設">
+            </td>
+        </tr>
+    </table>
+    <span style="color:red">{{ message }}</span>
+</form>

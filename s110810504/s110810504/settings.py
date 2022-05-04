@@ -43,7 +43,14 @@ INSTALLED_APPS = [
     'CookieSessionApp',
     'login',
     'newsapp',
+    'captcha',
+    'validate',
 ]
+CAPTCHA_NOISE_FUNCTIONS = (
+    # 'captcha.helpers.noise_null',# nothing
+    'captcha.helpers.noise_arcs',# line
+    'captcha.helpers.noise_dots',# dot
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

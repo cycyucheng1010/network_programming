@@ -1,0 +1,16 @@
+{% extends 'board/base.html' %}
+{% load static %}
+{% block title %}<title>web board</title>{% endblock %}
+
+{% block twomenu %}
+<img src="{% static "images/comments.png" %}" width="16" height="16"><a href="/board/post/">comment</a>
+<img src="{% static "images/key.png" %}" width="16" height="16"><a href="/board/login/">management</a>
+{% endblock %}
+
+{% block content %}
+</td>
+</tr>
+{% for unit in boardunits %}
+<tr>
+    <td background> </td>
+</tr>

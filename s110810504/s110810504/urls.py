@@ -15,20 +15,23 @@ Including another URLconf
 """
 from ast import Delete
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from CookieSessionApp.views import *
 from hellodjango.views import *
 from dice.views import *
 from myapp.views import *
 from login.views import *
 from newsapp.views import *
+from validate.views import *
+from boardapp.views import *
 urlpatterns = [
+    path('captcha/',include('captcha.urls')),
     path('admin/', admin.site.urls),
     path('',hello_world),
     path('helloworld/<str:username>',hello_user),
     path('helloworld/<str:username>/time',hello_template),
     path('helloworld/<str:username>/time/static',hello_static),
-    
+
     path('dice/test1',dice1),
     path('dice/test2',dice2),
     path('dice/test3/<str:username>',dice3),
@@ -36,6 +39,7 @@ urlpatterns = [
     path('show/',show),
     path('show2/',show_reverse),
     path('filter/',filter),  
+
     path('myapp/list_one/',list_one),
     path('myapp/list_all/',list_all),
     path('myapp/list_index/',list_index),
@@ -63,6 +67,7 @@ urlpatterns = [
     #path('CookieSessionApp/delete/session/<str:key>/',delete_session),
     path('CookieSessionApp/login/',login),
     path('CookieSessionApp/logout/',logout),
+
     path('login/adduser/',login_add_user),
     path('login/',login_index),
     path('login/index/',login_index),
@@ -81,5 +86,18 @@ urlpatterns = [
     path('news/newsedit/<int:newsid>/<str:edittype>/',news_newsedit),
     path('news/newsdelete/<int:newsid>/',news_newsdelete),
     path('news/newsdelete/<int:newsid>/<str:deletetype>/',news_newsdelete),
-    
+
+    path('validate/index/',vali_index),
+    path('validate/manage/',vali_manage),
+
+    #path('board/',board_index),
+    #path('board/index/',board_index),
+    #path('board/index/<str:pageindex>/',board_index),
+    #path('board/post/',board_post),
+    #path('board/login/',board_login),
+    #path('board/logout/',board_logout),
+    #path('board/adminmain/',board_adminmain),
+    #path('board/adminmain/<str:pageindex>',board_adminmain),
+    #path('delete/<int:boardid>/',board_delete),
+    #path('delete/<int:boardid>/<str:deletetype>',board_delete)
 ]

@@ -1,12 +1,6 @@
-{% extends 'board/base.html' %}
+{% extends 'board/baseadmin.html' %}
 {% load static %}
-{% block title %}<title>web board</title>{% endblock %}
-
-{% block twomenu %}
-<img src="{% static "images/comments.png" %}" width="16" height="16"><a href="/board/post/">comment</a>
-<img src="{% static "images/key.png" %}" width="16" height="16"><a href="/board/login/">management</a>
-{% endblock %}
-
+{% block title %}<title>網站留言版-管理留言</title>{% endblock %}
 {% block content %}
 </td>
 </tr>
@@ -91,4 +85,3 @@
 <tr>
     <td background=" {% static "images/g_r3_c3.png" %}"> 
 {% endblock %}
-    

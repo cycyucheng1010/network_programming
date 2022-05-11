@@ -1,0 +1,41 @@
+{% extends 'board/base.html' %}
+{% load static %}
+{% block title %}<title>board-admin-login</title>{% endblock %}
+{%block content %}
+    <table width="545" border="0" align="center" cellpadding="0" cellspacing="0" background="{% static "images/g_r5_c4.png" %}">
+        <tr>
+            <td valign="top" style="...">
+                <div id="postDiv">
+                    <form action="." method="POST" name="form1">
+                        {% csrf_token %}
+                        <table border="0" align="center" cellpadding="4" cellspacing="1">
+                            <tr>
+                                <th align="right" valign="baseline">account</th>
+                                <td valign="baseline"><input name="username" type="text" id="username" style="..."></td>
+                            </tr>
+
+                            <tr>
+                                <th align="right" valign="baseline">password</th>
+                                <td valign="baseline"><input name="passwd" type="password" id="passwd" style="..."></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2" align="center" valign="baseline">
+                                    <input type="submit" name="button" value="send">
+                                    <input type="reset" name="button2" value="reset">
+                                </th>
+                            </tr>
+                        </table>
+                        <span style="...">{{message}}</span>
+                    </form>
+                    </div></td>
+        </tr>
+        <tr>
+            <td><img src="{% static "images/g_r7_c4.png" %}" width="545" height="12" border="0" /></td>
+        </tr>
+    </table>
+    <span class="functionDiv">
+        <img src="{% static "images/g_r9_c3.png" %}" width="600" height="20" border="0" />
+    </span>
+{% endblock %}                    
+                    
+                        

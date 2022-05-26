@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'newsapp',
     'captcha',
     'validate',
+    'boardapp',
 ]
 CAPTCHA_NOISE_FUNCTIONS = (
     # 'captcha.helpers.noise_null',# nothing

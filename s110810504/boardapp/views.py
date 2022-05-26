@@ -2,16 +2,14 @@ from django.shortcuts import render,redirect
 from boardapp import models,forms
 from django.contrib.auth import authenticate
 from django .contrib import auth
-from django.contrib import math
-
-from s110810504.myapp.views import postform
+import math
 # Create your views here.
 page =0
 
 def board_index(request,pageindex=None):
     global page
     pagesize =3 
-    boardall = models.BoardUnit.objects.all().oreder_by('-id')
+    boardall = models.BoardUnit.objects.all().order_by('-id')
     datasize = len(boardall)
     totpage = math.ceil(datasize/pagesize)
     if pageindex ==None:
@@ -30,7 +28,7 @@ def board_index(request,pageindex=None):
     currentpage = page +1
     return render(request,'board/index.html')
         
-def post(request):
+def board_post(request):
     if request.method =='POST':
         postform = forms.PostForm(request.POST)
         if postform.is_valid():
@@ -40,7 +38,7 @@ def post(request):
             mail = postform.cleaned_data['boardmail']
             web = postform.cleaned_data['boardweb']
             content = postform.cleaned_data['boardcontent']
-            unit = models.BoardUnit.object.create(bname=name,bgender =gender,bsubject=subject,bmail=mail,bweb=web,bcontent = content,bresponse = '')
+            unit = models.BoardUnit.objects.create(bname=name,bgender =gender,bsubject=subject,bmail=mail,bweb=web,bcontent = content,bresponse = '')
 
             unit.save()
             message = 'saved...'
@@ -67,16 +65,16 @@ def board_login(request):
                 message = 'account not authorize'
         else:
             message = 'login failed'
-    return render(request,'login.html',locals())
+    return render(request,'board/login.html',locals())
 
-def logout(request):
+def board_logout(request):
     auth.logout(request)
     return redirect('/board/index/')
 
-def adminmain(request,pageindex = None):
+def board_adminmain(request,pageindex = None):
     global page
     pagesize =3 
-    boardall = models.BoardUnit.objects.all().oreder_by('-id')
+    boardall = models.BoardUnit.objects.all().order_by('-id')
     datasize = len(boardall)
     totpage = math.ceil(datasize/pagesize)
     if pageindex ==None:
@@ -109,7 +107,7 @@ def adminmain(request,pageindex = None):
     currentpage = page +1 
     return render(request,'board/adminmain.html',locals())
 
-def delete(request,boardid = None , deletetype = None):
+def board_delete(request,boardid = None , deletetype = None):
     unit = models.BoardUnit.objects.get(id=boardid)
     if deletetype == 'del':
         unit.delete()

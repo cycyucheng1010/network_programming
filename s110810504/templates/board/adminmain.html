@@ -1,0 +1,87 @@
+{% extends 'board/baseadmin.html' %}
+{% load static %}
+{% block title %}<title>網站留言版-管理留言</title>{% endblock %}
+{% block content %}
+</td>
+</tr>
+{% for unit in boardunits %}
+    <tr>
+        <td background=" {% static "images/g_r3_c3.png" %}"> 
+            <table width="545" border="0" align="center" cellppadding="0" cellspacing="0"
+                background="{% static "images/g_r5_c4.png" %}" 
+    <tr>
+        <td valign="top" style="...">
+            <div class="floorDiv">
+                {% if unit.bgender == "m" %}
+                    <img src="{% static "images/boy.png" %}" width="72" height="63"/>
+                {% else %}
+                    <img src="{% static "images/girl.png" %}" width="72" height="63"/>
+                {% endif %}
+            </div>
+            <div class="contentDiv">
+                <p class="title">{{unit.bsubject}}</p>
+                <p></p>
+                <p>{{ unit.bcontent }}</p>
+                {% if unit.bresponse != "" %}
+                    <div class="responseDiv">
+                        <p><strong>admin response:{{ unit.bresponse}}</strong></p>
+                    </div>
+                {% endif %}
+                <p class="editor"><img src="{% static "images/user.png" %} width="16" height="16"
+                align="absmiddle">{{ unit.btime }}
+                        <img src="{% static "images/date.png" %}" width="16" height="16" border="0"
+                        align="absmiddle">{{unit.btime}}
+                {% if unit.bmail != "" %}
+                    <a href="mailto:{{unit.bmail}}" target="_blank">
+                        <img src="{% static "images/email.png" %}" width="16" height="16" border="0"
+                        align="absmiddle">
+                    </a>
+                {% endif %}
+                {% if unit.bweb != "" %}
+                    <a href="{{unit.bweb}}" target="_blank">
+                        <img src="{% static "images/world.png" %}" width="16" height="16" border="0"
+                        align="absmiddle">
+                    </a>
+                {% endif %}
+                </p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="{% static "images/g_r7_c4.png" %}" width="545" height="12" borde="0" alt="" /> 
+        </td>
+    </tr>
+    </table>
+    <span class="functionDiv">
+        <img src="{% static "images/g_r9_c3.png" %}" width="600" height="20" border="0" />
+    </span>
+    </tr>
+{% empty %}
+    <tr>
+        <td background=" {% static "images/g_r3_c3.png" %}"> 
+            <div class="messageDiv"><img src="{% static "images/exclamation.png" %}" width="16" height="16" border="0"
+                            align="absmiddle">
+            </div>
+        </td>
+    </tr>
+{% endfor %}
+<tr>
+    <td background=" {% static "images/g_r3_c3.png" %}"> 
+        <div class="pagebutton">
+            {% if currentpage > 1 %}
+                <a href="/index/prev/" title="prevpage">
+                    <img src="{% static "images/prevpage.png" %}" alt="prevpage" width="64" height="24" />
+                </a>
+            {% endif %}
+            {% if currentpage < totpage %}
+                <a href="/index/prev/" title="nextpage">
+                        <img src="{% static "images/nextpage.png" %}" alt="prevpage" width="64" height="24" />
+                </a>
+            {% endif %}
+        </div>
+    </td>
+</tr>
+<tr>
+    <td background=" {% static "images/g_r3_c3.png" %}"> 
+{% endblock %}

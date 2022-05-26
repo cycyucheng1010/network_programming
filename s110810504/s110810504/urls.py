@@ -90,14 +90,14 @@ urlpatterns = [
     path('validate/index/',vali_index),
     path('validate/manage/',vali_manage),
 
-    #path('board/',board_index),
-    #path('board/index/',board_index),
-    #path('board/index/<str:pageindex>/',board_index),
-    #path('board/post/',board_post),
-    #path('board/login/',board_login),
-    #path('board/logout/',board_logout),
-    #path('board/adminmain/',board_adminmain),
-    #path('board/adminmain/<str:pageindex>',board_adminmain),
-    #path('delete/<int:boardid>/',board_delete),
-    #path('delete/<int:boardid>/<str:deletetype>',board_delete)
+    path('board/',board_index),
+    path('board/index/',board_index),
+    path('board/index/<str:pageindex>/',board_index),
+    path('board/post/',board_post),
+    path('board/login/',board_login),
+    path('board/logout/',board_logout),
+    path('board/adminmain/',board_adminmain),
+    path('board/adminmain/<str:pageindex>',board_adminmain),
+    path('delete/<int:boardid>/',board_delete),
+     path('delete/<int:boardid>/<str:deletetype>',board_delete)
 ]

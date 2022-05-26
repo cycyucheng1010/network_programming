@@ -1,0 +1,69 @@
+{% extends 'board/base.html' %}
+{% load static %}
+{% block title %}<title>web board</title>{% endblock %}
+
+{% block twomenu %}
+<img src="{% static "images/comments.png" %}" width="16" height="16"><a href="/board/post/">comment</a>
+<img src="{% static "images/key.png" %}" width="16" height="16"><a href="/board/login/">management</a>
+{% endblock %}
+
+{% block content %}
+    <table width="545" border="0" align="center" cellpadding="0" cellspacing="0" background="{% static "images/g_r5_c4.png" %}">
+        <tr>
+            <td valign="top" style="...">
+                <div id="postDiv">
+                    <form action="." method="POST" name="form1">
+                        {% csrf_token %}
+                        <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                            <tr>
+                                <th width="80" align="right" valign="baseline">title</th>
+                                <td valign="baseline">{{postform.boardsubject}}</td>
+                            </tr>
+                            <tr>
+                                <th width="80" align="right" valign="baseline">name</th>
+                                <td valign="baseline">{{postform.boardname}}</td>
+                            </tr>
+                            <tr>
+                                <th width="80" align="right" valign="baseline">gender</th>
+                                <td valign="baseline">
+                                    <input name="boardgender" type="radio" id="boardgender" value="m" checked="checked"/>
+                                    <img src="{% static "images/boy.png" %}" width="72" height="63" alt="male" />
+                                    <input name="boardgender" type="radio" id="boardgender" value="f" checked="checked"/>
+                                    <img src="{% static "images/girl.png" %}" width="72" height="63" alt="female" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th align="right" valign="baseline">email</th>
+                                <td valign="baseline">{{postform.boardmail}}</td>
+                            </tr>
+                            <tr>
+                                <th align="right" valign="baseline">personal site</th>
+                                <td valign="baseline">{{postform.boardweb}}</td>
+                            </tr>
+                            <tr>
+                                <th align="right" valign="baseline">content</th>
+                                <td valign="baseline">{{postform.boardcontent}}</td>
+                            </tr>
+                            <tr>
+                                <th align="right" valign="baseline">captcha</th>
+                                <td valign="baseline">{{postform.captcha}}</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2" align="center" valign="baseline">
+                                    <input type="submit" name="button" value="send">
+                                    <input type="reset" name="button2" value="reset">
+                                </th>
+                            </tr>
+                            </table>
+                            <span style="...">{{message}}</span>
+                    </form>
+                    </div></td>
+        </tr>
+        <tr>
+            <td><img src="{% static "images/g_r7_c4.png" %}" width="545" height="12" border="0" /></td>
+        </tr>
+    </table>
+    <span class="functionDiv">
+        <img src="{% static "images/g_r9_c3.png" %}" width="600" height="20" border="0" />
+    </span>
+{% endblock %}                 
